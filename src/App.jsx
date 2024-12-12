@@ -3,11 +3,11 @@ import "./App.css";
 import CalculatorComponent from "./components/CalculatorComponent";
 import IframeAgency from "./components/IframeAgency";
 import Sidebar from "./components/Sidebar";
-import TopBar from "./components/TopBar";
-import StartButton from "./components/StartButton";
 import EndLevelAnimation from "./components/EndLevelAnimation";
-import ProgressBar from "./components/ProgressBar";
+import ScrollableProjects from "./components/ScrollableProjetcs";
+import TopBar from "./components/TopBar";
 
+import QuestionBar from "./components/QuestionBar";
 const App = () => {
   const [skills, setSkills] = useState([
     { name: "Math", description: "Compétence essentielle pour résoudre des problèmes logiques et calculer efficacement.", unlocked: false },
@@ -98,8 +98,10 @@ const App = () => {
     setIsFocused(true);
   };
 
+
   return (
     <div className="relative min-h-screen flex bg-gray-900 text-white">
+      {/* Animation de fin de niveau */}
       {showEndLevelAnimation && (
         <EndLevelAnimation
           unlocks={currentUnlocks}
@@ -110,86 +112,38 @@ const App = () => {
         />
       )}
   
-      {isFocused && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-100 z-10 pointer-events-none"
-        >
-          <div
-            className="absolute left-0 top-0 h-full"
-            style={{ width: "15%" }}
-          />
-        </div>
-      )}
-  
-      {/* Sidebar seule */}
+      {/* Sidebar fixe */}
       <Sidebar skills={skills} achievements={achievements} />
   
-
-
-
-
-
       {/* Conteneur principal */}
-      <div className="flex-1 flex flex-col">
-
-        {/* TopBar seule */}
-        {isFocused ? (
-          <TopBar
-            currentQuestion={levels[currentLevel - 1]?.question}
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-            onValidate={handleValidation}
-          />
-        ) : (
-          <ProgressBar skills={skills} achievements={achievements} />
-        )}
-
+      <div className="flex-1 flex flex-col" style={{ marginLeft: "15%" }}>
+        {/* Utilisation du composant TopBar */}
+        <TopBar
+          isFocused={isFocused}
+          currentQuestion={levels[currentLevel - 1]?.question}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+          onValidate={handleValidation}
+          skills={skills}
+          achievements={achievements}
+        />
   
-        {/* Conteneur des projets */}
+        {/* Conteneur scrollable des projets */}
         <div
-          className={`flex-1 p-8 space-y-8 overflow-y-auto relative ${
-            isFocused ? "z-20" : ""
-          }`}
+          className="scrollable-projects-container"
           style={{
-            maxHeight: "100vh",
+            marginTop: "6rem", // Laisse de la place pour la TopBar
+            overflowY: "auto",
+            height: "calc(100vh - 6rem)", // Hauteur restante sous la TopBar
           }}
         >
-          {levels.map((level, index) => (
-            <div
-              key={level.id}
-              ref={(el) => (projectRefs.current[index] = el)}
-              className={`relative w-full rounded-lg shadow-lg overflow-hidden ${
-                !level.unlocked ? "opacity-30" : ""
-              }`}
-              style={{
-                display: isFocused && currentLevel !== level.id ? "none" : "block",
-              }}
-            >
-              <div className="p-2 bg-gray-800 text-white text-center rounded-t-md z-10">
-                <h2 className="text-xl font-semibold">{level.name}</h2>
-              </div>
-  
-              <div
-                className={`relative w-full h-[75vh] transition-opacity duration-300 ${
-                  level.unlocked && !level.started ? "opacity-30" : "opacity-100"
-                }`}
-              >
-                <level.component />
-              </div>
-  
-              {level.unlocked && !level.started && (
-                <div className="absolute inset-0 z-20 flex items-center justify-center">
-                  <StartButton onClick={() => handleStartProject(level.id)} />
-                </div>
-              )}
-  
-              {!level.unlocked && (
-                <div className="absolute inset-0 z-20 flex items-center justify-center bg-black bg-opacity-80">
-                  <p className="text-white text-lg">Projet Verrouillé</p>
-                </div>
-              )}
-            </div>
-          ))}
+          <ScrollableProjects
+            levels={levels}
+            projectRefs={projectRefs}
+            isFocused={isFocused}
+            currentLevel={currentLevel}
+            handleStartProject={handleStartProject}
+          />
         </div>
       </div>
     </div>

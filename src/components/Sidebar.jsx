@@ -3,7 +3,7 @@ import React from "react";
 const Sidebar = ({ skills, achievements }) => {
   return (
     <div
-      className="sticky top-0 bg-gray-800 p-4 flex flex-col items-center z-30"
+      className="fixed top-0 bg-gray-800 p-4 flex flex-col items-center z-50"
       style={{ width: "15%", minHeight: "100vh" }}
     >
       {/* Avatar */}

@@ -1,25 +1,44 @@
 import React from "react";
-import Question from "./Question";
-import AnswerInput from "./AnswerInput";
+import ProgressBar from "./ProgressBar";
+import QuestionBar from "./QuestionBar";
 
-const TopBar = ({ currentQuestion, inputValue, setInputValue, onValidate }) => {
+const TopBar = ({
+  isFocused,
+  currentQuestion,
+  inputValue,
+  setInputValue,
+  onValidate,
+  skills,
+  achievements,
+}) => {
   return (
     <div
-      className="sticky top-0 left-[15%] w-full bg-blue-600 p-4 z-50 flex justify-between items-center"
+      className="top-bar-container"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: "15%",
+        width: "calc(100% - 15%)",
+        height: "6rem",
+        backgroundColor: "#1e3a8a",
+        zIndex: 20,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0 1rem",
+        boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+      }}
     >
-      {/* Question */}
-      <div className="text-white font-bold text-lg">
-        <Question currentQuestion={currentQuestion} />
-      </div>
-
-      {/* Input et bouton */}
-      <div className="flex space-x-4">
-        <AnswerInput
+      {isFocused ? (
+        <QuestionBar
+          currentQuestion={currentQuestion}
           inputValue={inputValue}
           setInputValue={setInputValue}
           onValidate={onValidate}
         />
-      </div>
+      ) : (
+        <ProgressBar skills={skills} achievements={achievements} />
+      )}
     </div>
   );
 };
