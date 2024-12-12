@@ -1,0 +1,132 @@
+.bodyy {
+    font-family: 'Arial', sans-serif;
+    background-color: #525252; /* Fond noir */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ffffff;
+}
+
+.calculator {
+    width: 50vw;
+    max-width: 400px; /* Largeur maximale pour les grands écrans */
+    
+    aspect-ratio: 1 / 2; /* Proportion générale */
+    background-color: #000;
+    border-radius: 20px; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.display {
+    color: #fff;
+    background-color: #000; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1rem;
+    font-size: 2.5rem; 
+    height: 20%;
+    border-bottom: 1px solid #333; 
+}
+
+.previous-operand {
+    color: #888; 
+    font-size: 1.2rem;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Grille de 4 colonnes */
+    gap: 0.5rem; /* Espacement entre les boutons */
+    padding: 1rem;
+    height: auto; /* Laisse le conteneur s'ajuster */
+    overflow: visible; /* Évite que des boutons soient coupés */
+}
+
+button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%; /* Boutons ronds */
+    width: 100%; /* Assure que les boutons occupent tout l'espace horizontal */
+    aspect-ratio: 1; /* Garantit un rapport largeur/hauteur de 1:1 */
+    /*height: auto;
+    max-width: 80px; /* Limite la taille pour éviter qu'ils ne soient trop gros */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    color: #fff; /* Couleur du texte */
+    background-color: #333; /* Couleur de fond par défaut */
+}
+
+/* Couleurs par type */
+.btn[data-type="clear"] {
+    background-color: #a5a5a5; 
+}
+
+.btn[data-type="delete"] {
+    background-color: #a5a5a5; 
+}
+
+.btn[data-type="special"] {
+    background-color: #333; 
+}
+
+.btn[data-type="operator"] {
+    background-color: #f79f1f; 
+}
+
+.btn[data-type="number"] {
+    background-color: #333; 
+}
+
+.btn[data-type="equals"] {
+    background-color: #f79f1f; 
+}
+
+#percent {
+    background-color: #a5a5a5;
+    background-color: #b5b5b5; 
+}
+
+#percent:hover {
+    background-color: #a5a5a5;
+}
+
+/* Couleurs de survol spécifiques */
+.btn[data-type="clear"]:hover {
+    background-color: #b5b5b5; 
+}
+
+.btn[data-type="delete"]:hover {
+    background-color: #b5b5b5; 
+}
+
+.btn[data-type="special"]:hover {
+    background-color: #444; 
+}
+
+.btn[data-type="operator"]:hover {
+    background-color: #e67e22; 
+}
+
+.btn[data-type="number"]:hover {
+    background-color: #444; 
+}
+
+.btn[data-type="equals"]:hover {
+    background-color: #e67e22; 
+}
+

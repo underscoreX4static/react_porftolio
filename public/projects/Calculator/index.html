@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
+   <!-- <script src="./tests.js"></script>-->
+</head>
+<body>
+    <div class="bodyy">
+    <div class="calculator">
+        <div class="display">
+            <div id="message-container" style=" z-index: 1000; margin:auto; "></div>
+
+            <div class="previous-operand"></div>
+            <div class="current-operand">0</div>
+        </div>
+        <div class="buttons">
+            <!-- Ligne 1 -->
+            <button class="btn" data-type="clear" data-value="AC">AC</button>
+            <button class="btn" data-type="delete" data-value="←">←</button>
+            <button class="btn" id="percent" data-type="operator" data-value="%">%</button>
+            <button class="btn"  data-type="operator" data-value="÷">÷</button>
+
+            <!-- Ligne 2 -->
+            <button class="btn" data-type="number" data-value="7">7</button>
+            <button class="btn" data-type="number" data-value="8">8</button>
+            <button class="btn" data-type="number" data-value="9">9</button>
+            <button class="btn" data-type="operator" data-value="×">×</button>
+
+            <!-- Ligne 3 -->
+            <button class="btn" data-type="number" data-value="4">4</button>
+            <button class="btn" data-type="number" data-value="5">5</button>
+            <button class="btn" data-type="number" data-value="6">6</button>
+            <button class="btn" data-type="operator" data-value="−">−</button>
+
+            <!-- Ligne 4 -->
+            <button class="btn" data-type="number" data-value="1">1</button>
+            <button class="btn" data-type="number" data-value="2">2</button>
+            <button class="btn" data-type="number" data-value="3">3</button>
+            <button class="btn" data-type="operator" data-value="+">+</button>
+
+            <!-- Ligne 5 -->
+            <button class="btn" data-type="special" data-value="🖩">🖩</button>
+            <button class="btn" data-type="number" data-value="0">0</button>
+            <button class="btn" data-type="number" data-value=".">.</button>
+            <button class="btn" data-type="equals" data-value="=">=</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

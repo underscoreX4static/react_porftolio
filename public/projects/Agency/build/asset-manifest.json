@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0f6d4468.css",
+    "main.js": "/static/js/main.a5b3b26a.js",
+    "static/media/hero-pink.png": "/static/media/hero-pink.841200798c6c9d1dc5c7.png",
+    "static/media/hero-transparent.png": "/static/media/hero-transparent.a0a1ed3e89df1ccd822c.png",
+    "static/media/hero-violet.png": "/static/media/hero-violet.3196665051d226a748d6.png",
+    "static/media/cerveau-gauche.png": "/static/media/cerveau-gauche.7b5e5008a46b9981e0a5.png",
+    "static/media/cerveau-droit.png": "/static/media/cerveau-droit.bd180d9a4ebe9523bfd0.png",
+    "static/media/bg-cta.png": "/static/media/bg-cta.1a1acdff0dd89714b1a8.png",
+    "static/media/blog-2.jpg": "/static/media/blog-2.754c6467a74075aeae9d.jpg",
+    "static/media/blog-3.jpg": "/static/media/blog-3.063019603aadc73173d6.jpg",
+    "static/media/logo.png": "/static/media/logo.c54af99997bc0fbadd32.png",
+    "static/media/logo-dark.png": "/static/media/logo-dark.ce146680e82b72a13164.png",
+    "static/media/blog-1.jpg": "/static/media/blog-1.ab56dd562cf6b76f6e81.jpg",
+    "index.html": "/index.html",
+    "main.0f6d4468.css.map": "/static/css/main.0f6d4468.css.map",
+    "main.a5b3b26a.js.map": "/static/js/main.a5b3b26a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f6d4468.css",
+    "static/js/main.a5b3b26a.js"
+  ]
+}
