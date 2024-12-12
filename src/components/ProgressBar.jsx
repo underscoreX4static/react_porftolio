@@ -6,19 +6,11 @@ const ProgressBar = ({ skills, achievements }) => {
   const progressPercentage = (unlockedItems / totalItems) * 100;
 
   return (
-
-<div
-      className="fixed top-10 left-1/4 p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4"
-      style={{
-        zIndex: 1000,
-        border: "3px solid white",
-        width: "50%",
-        animation: "fadeIn 0.5s ease-out",
-        backgroundColor: "#307ED8", // Couleur bleue identique à la TopBar
-      }}
+    <div
+      className="sticky top-0 left-[15%] w-full bg-gray-800 p-4 z-50 flex flex-col items-center space-y-2"
     >
       <h1 className="text-white font-bold text-lg">Progression</h1>
-      <div className="w-full bg-gray-700 h-4 rounded-full overflow-hidden">
+      <div className="w-full bg-gray-600 h-4 rounded-full overflow-hidden">
         <div
           className="bg-blue-500 h-full"
           style={{ width: `${progressPercentage}%` }}
@@ -28,7 +20,6 @@ const ProgressBar = ({ skills, achievements }) => {
         {unlockedItems} / {totalItems} débloqués ({Math.round(progressPercentage)}%)
       </p>
     </div>
-
   );
 };
 
